@@ -1,3 +1,12 @@
+def initGradleEnvironment() {
+    println('==>it is init gradle environment by settings.gradle')
+    println('==>' + gradle.gradleHomeDir)
+    println('==>' + gradle.gradleUserHomeDir)
+    println('==>' + gradle.parent)
+}
+
+initGradleEnvironment()
+
 rootProject.name = 'MoviceApp'
 
 include ':app'

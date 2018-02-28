@@ -1,4 +1,4 @@
-def getVersionName() {
+def versionName() {
     def festXmlFile = project.file("AndroidManifest.xml")
     def rootManifest = new XmlSlurper().parse(festXmlFile)
     return rootManifest['@android:versionName']
@@ -33,8 +33,23 @@ def disableDebugBuild() {
  * getVersionName定义成一个closure，然后赋值到一个外部属性
  */
 ext {
-    getVersionName = this.&getVersionName
+    getVersionName = this.&versionName
     copyFile = this.&copyFile
     copyOUtput = this.&copyOutput
 
 }
+
+task loadfile {
+    doLast {
+        def files = file('./gradle/wrapper').listFiles().sort()
+        files.each { File file ->
+            println(file.path)
+            if (file.isDirectory()) {
+                println("==>$file.name")
+            } else if (file.isFile()) {
+                println("==>$file.name")
+            }
+        }
+    }
+}
+

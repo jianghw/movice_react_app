@@ -9,4 +9,4 @@ initGradleEnvironment()
 
 rootProject.name = 'MoviceApp'
 
-include ':app', ':javaLib'
+include ':app', ':javaLib', ':listLib', ':refreshLib'
